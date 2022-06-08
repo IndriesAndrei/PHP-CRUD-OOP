@@ -89,7 +89,7 @@ class signupConfig {
     // fetch single data from DB
     public function fetchOne() {
         try {
-            $stmt = $this->dbCnx->prepare("SELECT FROM students WHERE id = ?");
+            $stmt = $this->dbCnx->prepare("SELECT * FROM students WHERE id = ?");
             $stmt->execute([$this->id]);
             return $stmt->fetchAll();
         } catch (Exception $e) {
@@ -110,7 +110,7 @@ class signupConfig {
     // delete data from DB
     public function delete() {
         try {
-            $stmt = $this->dbCnx->prepare("DELETE FROM students WHERE id = ?");
+            $stmt = $this->dbCnx->prepare("DELETE * FROM students WHERE id = ?");
             $stmt->execute([$this->id]);
             return $stmt->fetchAll();
             echo "<script>alert('Data deleted successfully!'); document.location='index.php'</script>";
